@@ -17,47 +17,106 @@
 
 ## ✒️ Description
 
-In this turn-based battle card game, players assume the role of a Pokémon trainer and use their Pokémon to battle their opponent's Pokémon. Players play Pokémon to the field and attack their opponent's Pokémon. A Pokémon that has sustained enough damage is Knocked Out, and the player who knocked it out draws a Prize card. There are usually six Prize cards, and the primary win condition is to draw all of them. Other ways to win are by knocking out all the Pokémon the opponent has on the field so that the opponent has none left, or if at the beginning of their opponent's turn there are no cards left to draw in the opponent's deck.
+In this single-player survival action game, players control a masterful samurai warrior defending against endless waves of enemies. Armed with ancient blade techniques and mystical abilities, the samurai must survive increasingly difficult rounds of spawning monsters. The warrior can unleash devastating elemental attacks like blazing fire waves and whirling tornadoes, while using swift dashes to reposition and avoid overwhelming odds. Strategic use of blocking, dodging, and well-timed healing creates a dynamic combat experience where both offense and defense are crucial for survival.
 
 ## 🕹️ Gameplay
 
-Players begin by having one player select heads or tails, and the other flips a coin; the winner of the coin flip will decide who goes first or second. The player going first cannot attack their first turn, unless the card says otherwise. (Dice may be used in place of coins, with even numbers representing heads and odd numbers representing tails). Players then shuffle their decks and draw seven cards, then play one Basic Pokémon onto the field. This Pokémon is known as the Active Pokémon and is usually the one that attacks and receives damage. If a player does not have any Basic Pokémon, they must shuffle and draw a new hand, and the opponent may draw one additional card. Once both players have at least one Basic Pokémon, they can play up to five more Basic Pokémon onto their "Bench" (representing the maximum-carry limit of six from the video games). Players then take the top six cards of their deck and place them to the side as Prize Cards. Play then begins with the player who won the coin flip.
+(might change some of the mechanics)
+Core Combat System:
+Basic Attack: Left-click for sword strikes with potential combo chains
+Movement: WASD keys for directional movement around the battlefield
+Dash: Right-click or Shift key for quick directional dashes (short cooldown)
+Block: Hold E to raise guard, reducing incoming damage (limited stamina/duration)
+Dodge Roll: Spacebar for evasive roll with brief invincibility frames (cooldown required)
 
-Play alternates between players who may take several actions during their turn, including playing new Basic Pokémon, evolving their Pokémon, playing Trainer cards and Energy cards, and using Pokémon Abilities. A player may also retreat their Active Pokémon, switching the Active Pokémon with one on the Bench. At the end of their turn, a player may use one of their Active Pokémon's attacks, provided the prerequisite amount and types of Energy are attached to that Pokémon. Effects from that attack are then activated and damage may be placed on the Defending Pokémon; some attacks simply have effects but do not do damage. Damage may be modified depending on whether the defender has a weakness or a resistance to the attacker's Pokémon type. If the final damage exceeds the defending Pokémon's HP, it is Knocked Out, and the active player takes a prize card and ends their turn.
+Special Abilities (Number Keys 1-4):
+Fire Wave: Shoots a blazing wave of fire in target direction, burning enemies in its path
+Whirlwind Tornado: Creates a spinning tornado that travels forward, dealing continuous damage
+[Additional abilities to be designed]: Could include healing aura, lightning strikes, etc.
 
-This implementation of _Pokémon the Trading Card Game_ is a single player experience with an AI. The game is played primarily with the mouse to interact with the cards and general GUI. The players can optionally hit `M` on their keyboard to mute all game sounds.
+Healing Mechanics:
+Heal when completing a wave without taking damage (perfect round bonus)
+Small health recovery after defeating mini-boss enemies
+Possible healing ability unlock at higher levels
+
+Round Structure:
+Wave Start: Enemies spawn from multiple points around the map edges
+Combat: Player fights using all available abilities and techniques
+Wave Complete: Brief intermission with healing opportunities
+Level Up: Gain experience to unlock new abilities or upgrade existing ones
+Next Wave: More enemies with increased health/damage spawn
+
+Progression System:
+Experience gained from enemy kills and wave completion
+Ability tree allowing players to unlock and upgrade samurai techniques
+Each level offers choices between different upgrade paths
 
 ## 📃 Requirements
 
-> [!note]
-> This was a web project so that's why you'll see requirements about logging in and uploading data which for you is irrelevant. Focus more on the requirements describing actions taken for gameplay.
+1. Game Initialization & Setup
+1.1. The system shall start the game with the samurai at full health in the center of the battlefield.
+1.2. The system shall initialize Wave 1 with a randomized selection of early-tier enemies.
+1.3. The system shall display the current wave number, player health, and experience points on the HUD.
+1.4. The system shall spawn the first wave of enemies at designated spawn points around the map edges.
 
-1. The user shall register to be able to login.
-2. The user shall login to be able to play a game.
-3. The user shall upload a valid deck file.
-4. The user shall upload a valid cards file.
-5. The user shall upload a valid abilities file.
-6. The user shall select which deck they will use in the game.
-7. The user shall select which deck the AI will use in the game.
-8. The system shall "flip a coin" to decide which player goes first.
-9. The system shall shuffle the user's deck.
-10. The system shall draw the top 7 cards from the user's deck.
-11. If the user does not have a Basic Pokémon in their hand the system shall "mulligan" until they do.
-12. Upon each mulligan, the AI shall draw a card.
-13. The user shall put one of their Basic Pokémon face down as their Active Pokémon.
-14. The user shall put up to 5 more Basic Pokémon face down on their Bench.
-15. Upon a new turn, the system shall draw a card from the deck of the current player.
-16. Upon a new turn, the system shall place the drawn card in the hand of the current player.
-17. The user shall put (up to 5 total) Basic Pokémon cards from their hand onto their Bench.
-18. The user shall Evolve their Pokémon as many times as they choose.
-19. The user shall attach an Energy card from their hand to one of their Pokémon once per turn.
-20. The user shall play Trainer cards (as many as they want, but only one Supporter card and one Stadium card per turn).
-21. The user shall Retreat their Active Pokémon once per turn.
-22. The user shall use as many Abilities as they choose.
-23. The user shall attack the opponent's Active Pokémon.
-24. After a player attacks, the system shall end their turn and start their opponent's turn.
-25. The system shall execute any "special conditions" after a turn is over.
-26. The user shall pick a Victory Card when the opposing Active Pokémon dies.
+2. Movement & Basic Controls
+2.1. The user shall move the samurai in four directions using WASD keys.
+2.2. The user shall perform a dash in any direction using Right-click or Shift key.
+2.3. The system shall apply a cooldown period after each dash to prevent spam.
+2.4. The user shall perform a dodge roll using the Spacebar key.
+2.5. The system shall provide brief invincibility frames during the dodge roll animation.
+2.6. The system shall apply a cooldown period after each dodge roll.
+
+3. Combat System
+3.1. The user shall attack enemies by left-clicking the mouse.
+3.2. The system shall deal damage to enemies within the samurai's sword range.
+3.3. The user shall block incoming attacks by holding the E key.
+3.4. The system shall reduce incoming damage while blocking is active.
+3.5. The system shall limit blocking duration through a stamina system.
+3.6. The system shall regenerate stamina when not blocking.
+
+4. Special Abilities & Orb Collection
+4.1. The system shall spawn ability orbs randomly around the map during each wave.
+4.2. The user shall collect ability orbs by moving the samurai over them.
+4.3. The user shall activate Fire Wave ability using the 1 key after collecting the corresponding orb.
+4.4. The user shall activate Tornado ability using the 2 key after collecting the corresponding orb.
+4.5. The system shall upgrade abilities when the user collects multiple orbs of the same type.
+4.6. The system shall limit the number of ability orbs spawned per wave.
+
+5. Enemy System & Waves
+5.1. The system shall spawn enemies randomly from designated spawn points around the map.
+5.2. The system shall ensure early waves (1-5) contain only basic enemies (goblins, skeletons).
+5.3. The system shall introduce mid-tier enemies (orcs, knights, archers) starting from wave 6.
+5.4. The system shall introduce high-tier enemies (wizards, elite warriors) starting from wave 16.
+5.5. The system shall increase enemy health and damage with each subsequent wave.
+5.6. The system shall increase the number of enemies spawned with each wave progression.
+
+6. Wave Progression & Completion
+6.1. The system shall detect when all enemies in the current wave are defeated.
+6.2. The system shall provide a brief intermission period between waves.
+6.3. The system shall advance to the next wave automatically after the intermission.
+6.4. The system shall award experience points upon wave completion.
+
+7. Healing & Health Management
+7.1. The system shall restore partial health when completing a wave without taking damage.
+7.2. The system shall provide small health recovery after defeating mini-boss type enemies.
+7.3. The system shall display current health status on the HUD at all times.
+
+8. Progression & Leveling
+8.1. The system shall award experience points for each enemy defeated.
+8.2. The system shall allow the user to level up when sufficient experience is gained.
+8.3. The system shall provide upgrade choices for health, stamina, or ability power upon leveling.
+8.4. The system shall save the current level and stats throughout the game session.
+
+9. Game End Conditions
+9.1. The system shall end the game when the samurai's health reaches zero.
+9.2. The system shall display the final wave reached and total score upon game over.
+9.3. The system shall allow the user to restart the game from the beginning.
+
+10. User Interface
+10.1. The system shall display current wave number, health, experience, and available abilities on screen.
+10.2. The system shall show cooldown timers for dash, dodge, and special abilities.
+10.3. The system shall provide visual feedback when collecting orbs or taking damage.
 
 ### 🤖 State Diagram
 
