@@ -123,7 +123,9 @@ Each level offers choices between different upgrade paths
 > [!note]
 > Remember that you'll need diagrams for not only game states but entity states as well.
 
-![State Diagram](./assets/images/StateDiagram.png)
+![State Diagram](./assets/images/Gamestates.png)
+
+![Entities Diagram](./assets/images/entities.png)
 
 ### 🗺️ Class Diagram
 
