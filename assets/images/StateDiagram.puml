@@ -1,31 +1,369 @@
-@startuml Pokemon TCG
+```plantuml
+@startuml Samurai Game Class Diagram
 
-hide empty description
 skinparam monochrome true
+hide empty members
 
-state "TitleScreenState" as TSS
-state "PlayState" as PS
-state "OptionsState" as OS
-state "DeckViewState" as DVS
-state "VictoryState" as VS
-state "GameOverState" as GOS
-state Menu <<choice>>
-state PlayAgain <<choice>>
+' Configuration System
+class GameConfig {
+    enemyTypes[]
+    waveConfigs[]
+    abilityConfigs[]
+    difficultySettings
+    loadFromFile()
+    getEnemyTemplate()
+    getWaveConfig()
+}
 
-[*] --> TSS
+class EnemyTemplate {
+    name
+    baseHealth
+    baseDamage
+    baseSpeed
+    spriteName
+    attackPatternType
+    rarity
+    specialAbilities[]
+    clone()
+    applyModifiers()
+}
 
-TSS --> Menu
-Menu --> OS
-Menu --> PS
-Menu --> DVS
+class WaveConfig {
+    waveNumber
+    minEnemies
+    maxEnemies
+    allowedEnemyTypes[]
+    spawnRate
+    difficultyModifier
+    bossChance
+    validateConfig()
+}
 
-PS --> VS
-PS --> GOS
+class AbilityConfig {
+    name
+    baseDamage
+    baseCooldown
+    effectType
+    visualEffectName
+    soundEffectName
+    upgradeModifiers[]
+    createInstance()
+}
 
-VS --> PlayAgain: Play again?
-GOS --> PlayAgain: Play again?
+' Dynamic Enemy System
+class Enemy {
+    template
+    currentHealth
+    maxHealth
+    position
+    velocity
+    damage
+    attackPattern
+    update()
+    render()
+    attack()
+    takeDamage()
+    applyTemplate()
+}
 
-PlayAgain --> TSS: No
-PlayAgain --> PS: Yes
+class EnemyFactory {
+    enemyTemplates[]
+    createEnemy()
+    getRandomEnemyTemplate()
+    applyWaveModifiers()
+    createFromTemplate()
+}
+
+interface AttackPattern {
+    execute()
+    canAttack()
+    getRange()
+}
+
+class MeleePattern {
+    range
+    attackSpeed
+    execute()
+    canAttack()
+    getRange()
+}
+
+class RangedPattern {
+    projectileSpeed
+    accuracy
+    range
+    execute()
+    canAttack()
+    getRange()
+}
+
+class MagicPattern {
+    castTime
+    manaRequired
+    aoeRadius
+    execute()
+    canAttack()
+    getRange()
+}
+
+' Dynamic Wave System
+class WaveGenerator {
+    waveConfigs[]
+    difficultyScaler
+    generateWave()
+    selectEnemyTypes()
+    calculateSpawnCount()
+    applyDifficultyScaling()
+    createSpawnSchedule()
+}
+
+class SpawnManager {
+    spawnQueue[]
+    spawnTimer
+    spawnPoints[]
+    scheduleSpawn()
+    processSpawnQueue()
+    getAvailableSpawnPoint()
+    update()
+}
+
+class SpawnEvent {
+    enemyTemplate
+    spawnTime
+    spawnPoint
+    execute()
+}
+
+' Dynamic Ability System
+class AbilityFactory {
+    abilityConfigs[]
+    createAbility()
+    loadAbilityConfigs()
+    getRandomAbility()
+    upgradeAbility()
+}
+
+class AbilityTemplate {
+    config
+    currentLevel
+    modifiers[]
+    createInstance()
+    applyUpgrades()
+    calculateDamage()
+}
+
+class DynamicAbility {
+    template
+    cooldownTimer
+    isReady
+    currentDamage
+    activate()
+    update()
+    canUse()
+}
+
+class EffectProcessor {
+    activeEffects[]
+    processEffect()
+    applyDamage()
+    createVisuals()
+    addEffect()
+    updateEffects()
+}
+
+class Effect {
+    type
+    duration
+    magnitude
+    target
+    apply()
+    update()
+    isExpired()
+}
+
+' Core Game Classes
+class Game {
+    currentState
+    configManager
+    assetManager
+    update()
+    render()
+    initialize()
+}
+
+abstract class GameState {
+    enter()
+    exit()
+    update()
+    render()
+    handleInput()
+}
+
+class PlayState {
+    samurai
+    waveManager
+    enemyManager
+    abilityManager
+    update()
+    render()
+    processCollisions()
+}
+
+class Samurai {
+    position
+    healthComponent
+    staminaComponent
+    experienceComponent
+    abilityManager
+    inputHandler
+    update()
+    render()
+    takeDamage()
+    useAbility()
+}
+
+class HealthComponent {
+    currentHealth
+    maxHealth
+    regenerationRate
+    takeDamage()
+    heal()
+    isAlive()
+}
+
+class StaminaComponent {
+    currentStamina
+    maxStamina
+    regenerationRate
+    consume()
+    regenerate()
+    canUseAbility()
+}
+
+class ExperienceComponent {
+    currentXP
+    level
+    xpToNextLevel
+    addXP()
+    levelUp()
+    getStatBonus()
+}
+
+' Managers
+class WaveManager {
+    waveGenerator
+    spawnManager
+    currentWave
+    enemiesRemaining
+    startWave()
+    update()
+    isWaveComplete()
+}
+
+class EnemyManager {
+    activeEnemies[]
+    enemyFactory
+    update()
+    render()
+    spawnEnemy()
+    removeEnemy()
+}
+
+class AbilityManager {
+    ownedAbilities[]
+    abilityFactory
+    effectProcessor
+    addAbility()
+    useAbility()
+    update()
+}
+
+' Resource Management
+class ConfigManager {
+    gameConfig
+    loadConfigs()
+    getEnemyTemplate()
+    getWaveConfig()
+    getAbilityConfig()
+    reloadConfigs()
+}
+
+class AssetManager {
+    sprites[]
+    sounds[]
+    effects[]
+    loadAsset()
+    getSprite()
+    getSound()
+    preloadAssets()
+}
+
+class ResourceLoader {
+    loadJSON()
+    loadImage()
+    loadSound()
+    validateResource()
+}
+
+' Relationships
+
+' Configuration System Relationships
+GameConfig *-- "*" EnemyTemplate
+GameConfig *-- "*" WaveConfig  
+GameConfig *-- "*" AbilityConfig
+
+' Game Core Relationships
+Game *-- "1" ConfigManager
+Game *-- "1" AssetManager
+Game *-- "1" GameState
+GameState <|-- PlayState
+
+' PlayState Composition
+PlayState *-- "1" Samurai
+PlayState *-- "1" WaveManager
+PlayState *-- "1" EnemyManager
+PlayState *-- "1" AbilityManager
+
+' Samurai Component System
+Samurai *-- "1" HealthComponent
+Samurai *-- "1" StaminaComponent
+Samurai *-- "1" ExperienceComponent
+
+' Dynamic Enemy System Relationships
+EnemyFactory ..> EnemyTemplate : uses
+EnemyFactory ..> Enemy : creates
+Enemy *-- "1" EnemyTemplate
+Enemy *-- "1" AttackPattern
+AttackPattern <|.. MeleePattern
+AttackPattern <|.. RangedPattern
+AttackPattern <|.. MagicPattern
+
+' Wave System Relationships
+WaveManager *-- "1" WaveGenerator
+WaveManager *-- "1" SpawnManager
+WaveGenerator ..> WaveConfig : uses
+SpawnManager *-- "*" SpawnEvent
+SpawnEvent ..> EnemyTemplate : uses
+
+' Ability System Relationships
+AbilityFactory ..> AbilityConfig : uses
+AbilityFactory ..> DynamicAbility : creates
+DynamicAbility *-- "1" AbilityTemplate
+AbilityTemplate *-- "1" AbilityConfig
+EffectProcessor *-- "*" Effect
+AbilityManager *-- "1" AbilityFactory
+AbilityManager *-- "1" EffectProcessor
+
+' Manager Relationships
+EnemyManager *-- "1" EnemyFactory
+EnemyManager o-- "*" Enemy
+ConfigManager *-- "1" GameConfig
+AssetManager ..> ResourceLoader : uses
+
+' Cross-System Dependencies
+WaveGenerator ..> EnemyFactory : uses
+SpawnManager ..> EnemyManager : notifies
+EffectProcessor ..> AssetManager : uses
+AbilityTemplate ..> EffectProcessor : uses
 
 @enduml

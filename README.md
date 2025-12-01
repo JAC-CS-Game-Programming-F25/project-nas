@@ -129,49 +129,79 @@ Each level offers choices between different upgrade paths
 
 ### 🗺️ Class Diagram
 
-![Class Diagram](./assets/images/ClassDiagram.png)
+![Class Diagram](./assets/images/umldiagram.png)
 
 ### 🧵 Wireframes
 
 > [!note]
-> Your wireframes don't have to be super polished. They can even be black/white and hand drawn. I'm just looking for a rough idea about what you're visualizing.
+> Sprite sheet for characters, enemies and animations will be taken from these sprite sheets:
+> https://www.spriters-resource.com/mobile/finalfantasybraveexvius/asset/194038/
+> https://www.spriters-resource.com/game_boy_advance/finalfantasy1dawnofsouls/asset/25295/
 
-![Main Menu](./assets/images/Main-Menu.png)
 
--   _Let's Play_ will navigate to the main game.
--   _Upload Cards_ will navigation to the forms for uploading and parsing the data files for the game.
--   _Change Log_ will navigate the user to a page with a list of features/changes that have been implemented throughout the development of the game.
+![Loading Screen](./assets/images/pages/1.png)
 
-![Game Board](./assets/images/Game-Board.png)
+- On entry, or between screens such as _Start_ where entities/data have to be loaded, will display this loading screen
 
-We want to keep the GUI as simple and clear as possible by having cards with relevant images to act as a way for the user to intuitively navigate the game. We want to implement a layout that would look like as if one were playing a match of the Pokémon Trading Card Game with physical cards in real life. Clicking on any of the cards will reveal that card's details to the player.
+![Main Menu](./assets/images/pages/2.png)
 
-### 🎨 Assets
+- Simple main menu _Start_ button to start game, _Settings_ button, _Leaderboard_ button to see historical plays (idea would be to store the score in the local storage, cookies or something similar)
 
-We used [app.diagrams.net](https://app.diagrams.net/) to create the wireframes. Wireframes are the equivalent to the skeleton of a web app since they are used to describe the functionality of the product and the users experience.
+![Settings](./assets/images/pages/3.png)
+- Settings page to control sounds, music, and game mode from easy, medium or hard, button to go back to main menu
 
-We plan on following trends already found in other trading card video games, such as Pokémon Trading Card Game Online, Hearthstone, Magic the Gathering Arena, and Gwent.
+![Leaderboard](./assets/images/pages/4.png)
+- Leaderboard for the user to track their score each time they play
 
-The GUI will be kept simple and playful, as to make sure the game is easy to understand what each component does and is, as well as light hearted to keep to the Pokémon theme.
+![Game](./assets/images/tilemaps/samplegame.png)
+I plan to create a custom map using assets from a series of tilemaps and putting them together, attached is an example i put together using assets from each tile map 
+-https://kepx.itch.io/pixel-houses-rpg-top-down-pixel-art-asset-pack-16x16?download
+-https://snowhex.itch.io/dungeon-gathering-fire-zone-expansion/download/eyJpZCI6MjYxMzIwNywiZXhwaXJlcyI6MTc2NDYxODE3N30%3d.DidqHUmieZ6dU24KR6qiyWL8oCE%3d
+-https://ninjikin.itch.io/starter-tiles?download
+-https://szadiart.itch.io/rpg-worlds-ca/download/eyJpZCI6NjEwOTUzLCJleHBpcmVzIjoxNzY0NjE4MTY2fQ%3d%3d.pf5lthOWJ77eglIuCETQbYmAsiM%3d
 
-#### 🖼️ Images
 
--   Most images will be used from the well known community driven wikipedia site, [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).
--   Especially their [Trading Card Game section](<https://bulbapedia.bulbagarden.net/wiki/Full_Art_card_(TCG)>).
 
-#### ✏️ Fonts
+### 🎨 Assets & 🖼️ Images
 
-For fonts, a simple sans-serif like Roboto will look quite nice. It's a font that is legible, light on storage size, and fun to keep with the theme we're going for. We also used a more cartoonish Pokemon font for the title screen.
-
--   [Pokemon](https://www.dafont.com/pokemon.font)
--   [Roboto](https://fonts.google.com/specimen/Roboto)
+Miro for the diagrams, Canva to create wireframes, the loading screen i took a base template and modified it  
+sprites for game:
+> https://www.spriters-resource.com/mobile/finalfantasybraveexvius/asset/194038/
+> https://www.spriters-resource.com/game_boy_advance/finalfantasy1dawnofsouls/asset/25295/
+fonts:
+> https://en.bestfonts.pro/font/kurut 
+> https://fonts.google.com/specimen/League+Spartan
 
 #### 🔊 Sounds
 
-All sounds were taken from [freesound.org](https://freesound.org) for the actions pertaining to cards.
+- background music will be ( https://www.youtube.com/watch?v=T7k3l7iKflo ) - more to be added
 
--   [Shuffle cards](https://freesound.org/people/VKProduktion/sounds/217502/)
--   [Flip card](https://freesound.org/people/Splashdust/sounds/84322/)
+sword swoosh
+> https://pixabay.com/sound-effects/sword-slice-393847/
+
+sword hitting enemy
+> https://pixabay.com/sound-effects/sword-blade-slicing-flesh-352708/
+> https://pixabay.com/sound-effects/fantasy-game-sword-cut-sound-effect-get-more-on-my-patreon-339824/
+> https://pixabay.com/sound-effects/rpg-sword-attack-combo-34-388950/
+
+player taking damage
+> https://pixabay.com/sound-effects/bone-breaking-393842/
+
+blocking sounds
+>blocking https://pixabay.com/sound-effects/armor-impact-from-sword-393843/
+>enemy death https://pixabay.com/sound-effects/violent-sword-slice-2-393841/
+>player death 1 https://pixabay.com/sound-effects/sword-breaking-sound-effect-393840/
+>player death 2 https://pixabay.com/sound-effects/sword-clattering-to-the-ground-393838/
+
+special attack sounds
+> https://pixabay.com/sound-effects/earth-magic-5-378598/
+> https://pixabay.com/sound-effects/search/magic%20attack/?pagi=2
+> https://pixabay.com/sound-effects/elemental-magic-spell-impact-outgoing-228342/
+> https://pixabay.com/sound-effects/fireball-impact-351961/
+> https://pixabay.com/sound-effects/fireball-whoosh-2-179126/
+> https://pixabay.com/sound-effects/explosion-3-274684/
+> https://pixabay.com/sound-effects/rpg-sword-attack-combo-31-388958/ 
+
 
 ### 📚 References
 
