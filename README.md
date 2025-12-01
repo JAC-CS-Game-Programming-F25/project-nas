@@ -153,7 +153,7 @@ Each level offers choices between different upgrade paths
 ![Leaderboard](./assets/images/pages/4.png)
 - Leaderboard for the user to track their score each time they play
 
-![Game](./assets/images/tilemaps/samplegame.png)
+![Game](./assets/images/tilemaps/gameplayedited.png)
 I plan to create a custom map using assets from a series of tilemaps and putting them together, attached is an example i put together using assets from each tile map 
 -https://kepx.itch.io/pixel-houses-rpg-top-down-pixel-art-asset-pack-16x16?download
 -https://snowhex.itch.io/dungeon-gathering-fire-zone-expansion/download/eyJpZCI6MjYxMzIwNywiZXhwaXJlcyI6MTc2NDYxODE3N30%3d.DidqHUmieZ6dU24KR6qiyWL8oCE%3d
