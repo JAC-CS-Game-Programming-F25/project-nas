@@ -1,0 +1,18 @@
+
+
+
+starter characters:
+
+https://www.spriters-resource.com/mobile/finalfantasybraveexvius/asset/94751/
+https://www.spriters-resource.com/mobile/finalfantasybraveexvius/asset/87453/
+https://www.spriters-resource.com/mobile/finalfantasybraveexvius/asset/87187/
+
+
+
+map creation:
+https://aamatniekss.itch.io/topdown-fantasy-forest (16x16)
+buildings:
+https://szadiart.itch.io/houses-pack (32x32)
+caves:
+https://szadiart.itch.io/rpg-worlds-ca
+

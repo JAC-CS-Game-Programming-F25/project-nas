@@ -1,0 +1,36 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "C:/Users/banko/Desktop/gamedevfinalproj/project-nas/assets/images/tilemaps/tilemaptsx/Ground1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/banko/Desktop/gamedevfinalproj/project-nas/assets/images/tilemaps/tilemaptsx/houses.tsx": {
+            "dynamicWrapping": false
+        }
+    },
+    "last.imagePath": "C:/Users/banko/Desktop/Gameprog final/project-nas/assets/images/tilemaps/TopDownFantasy_Forest_v1/Tiles",
+    "map.fixedSize": false,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+    ],
+    "project": "gameprogfinalproj.tiled-project",
+    "recentFiles": [
+        "C:/Users/banko/Desktop/gamedevfinalproj/project-nas/assets/images/tilemaps/tilemaptsx/Ground1.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 16,
+    "tileset.spacing": 16,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

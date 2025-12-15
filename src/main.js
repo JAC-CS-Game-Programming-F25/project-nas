@@ -24,7 +24,7 @@ import {
 import PlayState from './states/PlayState.js';
 import GameOverState from './states/GameOverState.js';
 import VictoryState from './states/VictoryState.js';
-import TitleScreenState from './states/TitleScreenState.js';
+import MainMenuState from './states/MainMenuState.js';
 
 // Set the dimensions of the play area.
 canvas.width = CANVAS_WIDTH;
@@ -46,13 +46,19 @@ images.load(imageDefinitions);
 fonts.load(fontDefinitions);
 sounds.load(soundDefinitions);
 
+//console.log("Assets loaded, image definitions:", imageDefinitions);
+
+// Wait a bit for images to load before starting the game
+await new Promise(resolve => setTimeout(resolve, 100));
+
 // Add all the states to the state machine.
-stateMachine.add(GameStateName.TitleScreen, new TitleScreenState());
 stateMachine.add(GameStateName.GameOver, new GameOverState());
 stateMachine.add(GameStateName.Victory, new VictoryState());
 stateMachine.add(GameStateName.Play, new PlayState());
+stateMachine.add('mainMenu', new MainMenuState());
 
-stateMachine.change(GameStateName.Play);
+// Start with main menu
+stateMachine.change('mainMenu');
 
 const game = new Game(
 	stateMachine,

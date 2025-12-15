@@ -1,11 +1,487 @@
 {
 	"images": [
+		{
+			"name": "mainmenuimage",
+			"path": "./assets/images/mainmenuimage.png",
+			"width": 1024,
+			"height": 768
+		},
+		{
+			"name": "tileset",
+			"path": "./assets/images/tilemaps/Tileset.png",
+			"width": 128,
+			"height": 240
+		},
+		{
+			"name": "decorations", 
+			"path": "./assets/images/tilemaps/Decorations.png",
+			"width": 256,
+			"height": 256
+		},
+		{
+			"name": "houses",
+			"path": "./assets/images/tilemaps/houses.png",
+			"width": 1024,
+			"height": 1024
+		},
+		{
+			"name": "player_idle_down",
+			"path": "./assets/images/tilemaps/IDLE/idle_down.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_idle_left",
+			"path": "./assets/images/tilemaps/IDLE/idle_left.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_idle_right",
+			"path": "./assets/images/tilemaps/IDLE/idle_right.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_idle_up",
+			"path": "./assets/images/tilemaps/IDLE/idle_up.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_run_down",
+			"path": "./assets/images/tilemaps/RUN/run_down.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_run_left",
+			"path": "./assets/images/tilemaps/RUN/run_left.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_run_right",
+			"path": "./assets/images/tilemaps/RUN/run_right.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_run_up",
+			"path": "./assets/images/tilemaps/RUN/run_up.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_down",
+			"path": "./assets/images/tilemaps/ATTACK1/attack1_down.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_left",
+			"path": "./assets/images/tilemaps/ATTACK1/attack1_left.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_right",
+			"path": "./assets/images/tilemaps/ATTACK1/attack1_right.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_up",
+			"path": "./assets/images/tilemaps/ATTACK1/attack1_up.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack2_down",
+			"path": "./assets/images/tilemaps/ATTACK2/attack2_down.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack2_left",
+			"path": "./assets/images/tilemaps/ATTACK2/attack2_left.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack2_right",
+			"path": "./assets/images/tilemaps/ATTACK2/attack2_right.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack2_up",
+			"path": "./assets/images/tilemaps/ATTACK2/attack2_up.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "MainLev2",
+			"path": "./assets/images/tilemaps/MainLev2.png",
+			"width": 1632,
+			"height": 1536
+		},
+		{
+			"name": "cavedecoration",
+			"path": "./assets/images/tilemaps/cavedecoration.png",
+			"width": 416,
+			"height": 960
+		},
 
+		{
+			"name": "SingleRedHouseTop",
+			"path": "./assets/images/tilemaps/SingleRedHouseTop.png",
+			"width": 178,
+			"height": 106
+		},
+		{
+			"name": "SingleRedHouseBottom",
+			"path": "./assets/images/tilemaps/SingleRedHouseBottom.png",
+			"width": 152,
+			"height": 41
+		},
+		{
+			"name": "SinglePurpleHouseTop",
+			"path": "./assets/images/tilemaps/SinglePurpleHouseTop.png",
+			"width": 223,
+			"height": 130
+		},
+		{
+			"name": "SinglePurpleHouseBottom",
+			"path": "./assets/images/tilemaps/SinglePurpleHouseBottom.png",
+			"width": 167,
+			"height": 43
+		},
+		{
+			"name": "Singlegreenhousetop",
+			"path": "./assets/images/tilemaps/Singlegreenhousetop.png",
+			"width": 202,
+			"height": 125
+		},
+		{
+			"name": "SinglegreenhouseBottom",
+			"path": "./assets/images/tilemaps/SinglegreenhouseBottom.png",
+			"width": 150,
+			"height": 40
+		},
+		{
+			"name": "cavedecoration-Copy",
+			"path": "./assets/images/tilemaps/cavedecoration - Copy.png",
+			"width": 91,
+			"height": 95
+		},
+		{
+			"name": "enemy_idle",
+			"path": "./assets/images/tilemaps/with_outline/IDLE.png",
+			"width": 256,
+			"height": 64
+		},
+		{
+			"name": "enemy_flying",
+			"path": "./assets/images/tilemaps/with_outline/FLYING.png",
+			"width": 256,
+			"height": 64
+		},
+		{
+			"name": "enemy_attack",
+			"path": "./assets/images/tilemaps/with_outline/ATTACK.png",
+			"width": 512,
+			"height": 64
+		},
+		{
+			"name": "enemy_hurt",
+			"path": "./assets/images/tilemaps/with_outline/HURT.png",
+			"width": 256,
+			"height": 64
+		},
+		{
+			"name": "enemy_death",
+			"path": "./assets/images/tilemaps/with_outline/DEATH.png",
+			"width": 448,
+			"height": 64
+		},
+		{
+			"name": "chest",
+			"path": "./assets/images/tilemaps/15_Ready_to_use_Treasure_Chests_Spritesheet.png",
+			"width": 1008,
+			"height": 600
+		},
+		{
+			"name": "knight_idle",
+			"path": "./assets/images/tilemaps/knight_with_outline/IDLE.png",
+			"width": 96,
+			"height": 32
+		},
+		{
+			"name": "knight_walk",
+			"path": "./assets/images/tilemaps/knight_with_outline/WALK.png",
+			"width": 256,
+			"height": 32
+		},
+		{
+			"name": "knight_run",
+			"path": "./assets/images/tilemaps/knight_with_outline/RUN.png",
+			"width": 256,
+			"height": 32
+		},
+		{
+			"name": "knight_attack1",
+			"path": "./assets/images/tilemaps/knight_with_outline/KNIGHTATTACK1.png",
+			"width": 192,
+			"height": 32
+		},
+		{
+			"name": "knight_attack2",
+			"path": "./assets/images/tilemaps/knight_with_outline/KNIGHTATTACK2.png",
+			"width": 160,
+			"height": 32
+		},
+		{
+			"name": "knight_attack3",
+			"path": "./assets/images/tilemaps/knight_with_outline/KNIGHTATTACK3.png",
+			"width": 192,
+			"height": 32
+		},
+		{
+			"name": "knight_defend",
+			"path": "./assets/images/tilemaps/knight_with_outline/DEFEND.png",
+			"width": 192,
+			"height": 32
+		},
+		{
+			"name": "knight_hurt",
+			"path": "./assets/images/tilemaps/knight_with_outline/HURT.png",
+			"width": 96,
+			"height": 32
+		},
+		{
+			"name": "knight_death",
+			"path": "./assets/images/tilemaps/knight_with_outline/DEATH.png",
+			"width": 384,
+			"height": 32
+		},
+		{
+			"name": "knight_jump",
+			"path": "./assets/images/tilemaps/knight_with_outline/JUMP.png",
+			"width": 96,
+			"height": 32
+		},
+		{
+			"name": "player_attack1_down_fire",
+			"path": "./assets/images/tilemaps/Abilities/fire/player_attack1_down_fire.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_left_fire",
+			"path": "./assets/images/tilemaps/Abilities/fire/player_attack1_left_fire.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_right_fire",
+			"path": "./assets/images/tilemaps/Abilities/fire/player_attack1_right_fire.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_up_fire",
+			"path": "./assets/images/tilemaps/Abilities/fire/player_attack1_up_fire.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_down_ice",
+			"path": "./assets/images/tilemaps/Abilities/ice/player_attack1_down_ice.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_left_ice",
+			"path": "./assets/images/tilemaps/Abilities/ice/player_attack1_left_ice.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_right_ice",
+			"path": "./assets/images/tilemaps/Abilities/ice/player_attack1_right_ice.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_up_ice",
+			"path": "./assets/images/tilemaps/Abilities/ice/player_attack1_up_ice.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_down_water",
+			"path": "./assets/images/tilemaps/Abilities/water/player_attack1_down_water.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_left_water",
+			"path": "./assets/images/tilemaps/Abilities/water/player_attack1_left_water.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_right_water",
+			"path": "./assets/images/tilemaps/Abilities/water/player_attack1_right_water.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "player_attack1_up_water",
+			"path": "./assets/images/tilemaps/Abilities/water/player_attack1_up_water.png",
+			"width": 768,
+			"height": 80
+		},
+		{
+			"name": "wizard_attack",
+			"path": "./assets/images/tilemaps/EvilWizard/Attack.png",
+			"width": 320,
+			"height": 64
+		},
+		{
+			"name": "wizard_death",
+			"path": "./assets/images/tilemaps/EvilWizard/Death.png",
+			"width": 320,
+			"height": 64
+		},
+		{
+			"name": "wizard_idle",
+			"path": "./assets/images/tilemaps/EvilWizard/Idle.png",
+			"width": 320,
+			"height": 64
+		},
+		{
+			"name": "wizard_move",
+			"path": "./assets/images/tilemaps/EvilWizard/Move.png",
+			"width": 320,
+			"height": 64
+		},
+		{
+			"name": "wizard_takehit",
+			"path": "./assets/images/tilemaps/EvilWizard/Take Hit.png",
+			"width": 320,
+			"height": 64
+		}
 	],
 	"fonts": [
 
 	],
 	"sounds": [
-		
+		{
+			"name": "backgroundmusic",
+			"path": "./assets/sounds/backgroundmusic.mp3",
+			"size": 1,
+			"volume": 0.5,
+			"loop": true
+		},
+		{
+			"name": "menuswitching",
+			"path": "./assets/sounds/menuswitching.mp3",
+			"size": 3,
+			"volume": 0.7,
+			"loop": false
+		},
+		{
+			"name": "menuselect",
+			"path": "./assets/sounds/menuselect.mp3",
+			"size": 2,
+			"volume": 0.8,
+			"loop": false
+		},
+		{
+			"name": "swordattackhit",
+			"path": "./assets/sounds/swordattackhit.wav",
+			"size": 5,
+			"volume": 0.6,
+			"loop": false
+		},
+		{
+			"name": "parry",
+			"path": "./assets/sounds/parry.mp3",
+			"size": 3,
+			"volume": 0.7,
+			"loop": false
+		},
+		{
+			"name": "knightblock",
+			"path": "./assets/sounds/knightblock.wav",
+			"size": 4,
+			"volume": 0.5,
+			"loop": false
+		},
+		{
+			"name": "sword-swing",
+			"path": "./assets/sounds/sword-swing.mp3",
+			"size": 6,
+			"volume": 0.4,
+			"loop": false
+		},
+		{
+			"name": "dash",
+			"path": "./assets/sounds/dash.mp3",
+			"size": 4,
+			"volume": 0.5,
+			"loop": false
+		},
+		{
+			"name": "devilattack",
+			"path": "./assets/sounds/devilattack.mp3",
+			"size": 3,
+			"volume": 0.6,
+			"loop": false
+		},
+		{
+			"name": "devilconstant",
+			"path": "./assets/sounds/devilconstant.mp3",
+			"size": 1,
+			"volume": 0.4,
+			"loop": true
+		},
+		{
+			"name": "wizardattack",
+			"path": "./assets/sounds/wizardattack.mp3",
+			"size": 5,
+			"volume": 0.8,
+			"loop": false
+		},
+		{
+			"name": "chestboxopen",
+			"path": "./assets/sounds/chestboxopen.mp3",
+			"size": 1,
+			"volume": 0.6,
+			"loop": false
+		},
+		{
+			"name": "playerrunning",
+			"path": "./assets/sounds/playerrunning.mp3",
+			"size": 1,
+			"volume": 0.4,
+			"loop": true
+		},
+		{
+			"name": "knightrunning",
+			"path": "./assets/sounds/knightrunning.mp3",
+			"size": 1,
+			"volume": 0.1,
+			"loop": true
+		},
+		{
+			"name": "wizardrunning",
+			"path": "./assets/sounds/wizardrunning.mp3",
+			"size": 1,
+			"volume": 0.1,
+			"loop": true
+		}
 	]
 }
