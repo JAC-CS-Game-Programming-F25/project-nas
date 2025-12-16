@@ -14,6 +14,11 @@ export default class PlayerParryState extends PlayerState {
 		this.player.currentAttackFrame = 0;
 		this.player.attackFrameTimer = 0;
 		//console.log('Player started parry with attack2 animation!');
+
+		// Play sword swing sound immediately
+		if (window.gameState && window.gameState.playSFX) {
+			window.gameState.playSFX('sword-swing', 0.4);
+		}
 	}
 
 	exit() {
@@ -33,22 +38,6 @@ export default class PlayerParryState extends PlayerState {
 		
 		// End parry when duration is reached
 		if (this.player.parryTimer >= this.player.parryDuration) {
-			// Check if parry was successful by looking for any stunned enemies nearby
-			let parrySuccessful = false;
-			if (window.gameState && window.gameState.enemies) {
-				for (const enemy of window.gameState.enemies) {
-					if (enemy.isStunned && enemy.stunTimer > 0) {
-						parrySuccessful = true;
-						break;
-					}
-				}
-			}
-			
-			// Play sword swing sound if parry was unsuccessful
-			if (!parrySuccessful && window.gameState && window.gameState.playSFX) {
-				window.gameState.playSFX('sword-swing', 0.4);
-			}
-			
 			this.player.changeState(PlayerStateName.Idle);
 		}
 	}

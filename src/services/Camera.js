@@ -9,12 +9,35 @@ export default class Camera {
         this.minZoom = 1.6;
         this.maxZoom = 3.0;
         this.handleWheel = null;
+        
+        // Screen shake properties
+        this.shakeIntensity = 0;
+        this.shakeDuration = 0;
+        this.shakeTimer = 0;
+        this.shakeOffsetX = 0;
+        this.shakeOffsetY = 0;
     }
 
     reset() {
         this.x = 0;
         this.y = 0;
         this.zoom = 1.6;
+        this.shakeIntensity = 0;
+        this.shakeDuration = 0;
+        this.shakeTimer = 0;
+        this.shakeOffsetX = 0;
+        this.shakeOffsetY = 0;
+    }
+
+    /**
+     * Trigger a screen shake effect
+     * @param {number} intensity - How violent the shake is (pixels)
+     * @param {number} duration - How long the shake lasts (seconds)
+     */
+    shake(intensity, duration) {
+        this.shakeIntensity = intensity;
+        this.shakeDuration = duration;
+        this.shakeTimer = duration;
     }
 
     setupZoomControls() {
@@ -44,14 +67,34 @@ export default class Camera {
         }
     }
 
-    update() {
+    update(dt) {
         if (!this.state.player) return;
 
         const playerCenter = this.state.player.getCenterPosition();
         
-        // Center camera on player
-        this.x = playerCenter.x - CANVAS_WIDTH / 2;
-        this.y = playerCenter.y - CANVAS_HEIGHT / 2;
+        // Update shake
+        if (this.shakeTimer > 0) {
+            this.shakeTimer -= dt || 0.016; // Default to 60fps if dt missing
+            if (this.shakeTimer <= 0) {
+                this.shakeTimer = 0;
+                this.shakeOffsetX = 0;
+                this.shakeOffsetY = 0;
+            } else {
+                // Calculate shake offset
+                const progress = this.shakeTimer / this.shakeDuration;
+                const currentIntensity = this.shakeIntensity * progress;
+                
+                this.shakeOffsetX = (Math.random() * 2 - 1) * currentIntensity;
+                this.shakeOffsetY = (Math.random() * 2 - 1) * currentIntensity;
+            }
+        } else {
+            this.shakeOffsetX = 0;
+            this.shakeOffsetY = 0;
+        }
+        
+        // Center camera on player with shake
+        this.x = playerCenter.x - CANVAS_WIDTH / 2 + this.shakeOffsetX;
+        this.y = playerCenter.y - CANVAS_HEIGHT / 2 + this.shakeOffsetY;
     }
 
     applyTransform(context) {

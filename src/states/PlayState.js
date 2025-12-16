@@ -229,7 +229,7 @@ export default class PlayState extends State {
 					this.player.direction = prevDirection;
 				}
 				
-				this.cameraService.update();
+				this.cameraService.update(dt);
 				return;
 			}
 		}
@@ -380,7 +380,7 @@ export default class PlayState extends State {
 		this.abilityManager.handleInput();
 		
 		// Update camera to follow player
-		this.cameraService.update();
+		this.cameraService.update(dt);
 
 		// Check for victory (all enemies defeated)
 		if (!this.isLoading && !this.tutorialActive && this.chestSpawned && this.enemies.length === 0) {

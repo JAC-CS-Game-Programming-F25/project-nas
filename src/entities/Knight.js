@@ -106,7 +106,7 @@ export default class Knight extends Enemy {
 			attack2: 5,   // 5 frames
 			attack3: 6,   // 6 frames
 			defend: 6,    // 6 frames
-			hurt: 3,      // 3 frames
+			hurt: 6,      // 6 frames (Fix for "two knights" bug - sheet is double width)
 			death: 12,    // 12 frames
 			jump: 3,      // 3 frames
 			// Compatibility mappings
@@ -340,7 +340,14 @@ export default class Knight extends Enemy {
 			// Knight sheets face right by default; flip when moving left
 			const shouldFlip = this.patrolDirection === Math.PI; // PI = moving left
 			
-				if (shouldFlip) {
+			// Apply damage flash effect
+			const isFlashing = this.isTakingDamage && Math.floor(Date.now() / 50) % 2 === 0;
+			if (isFlashing) {
+				context.save();
+				context.filter = 'brightness(1000%) grayscale(100%)';
+			}
+
+			if (shouldFlip) {
 				// Save context and flip horizontally
 				context.save();
 				context.scale(-1, 1); // Flip horizontally
@@ -357,6 +364,11 @@ export default class Knight extends Enemy {
 						srcX, srcY, srcW, srcH, // Dynamic source rect
 						destX, destY, this.frameWidth, this.frameHeight // Destination
 					);
+			}
+
+			// Restore context if flashing
+			if (isFlashing) {
+				context.restore();
 			}
 			
 			// Draw health bar above knight (adjust position for smaller sprite)

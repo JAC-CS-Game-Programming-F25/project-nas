@@ -260,6 +260,11 @@ export default class Player extends GameEntity {
 		this.damageImmunityTimer = this.damageImmunityDuration;
 		this.showDamageText(finalDamage);
 		
+		// Trigger minimal screen shake on damage
+		if (window.gameState && window.gameState.cameraService) {
+			window.gameState.cameraService.shake(5, 0.2);
+		}
+
 		if (this.health <= 0) {
 			this.health = 0;
 			this.isDead = true;
@@ -284,6 +289,12 @@ export default class Player extends GameEntity {
 		this.isParrying = false;
 		this.parryTimer = 0;
 		this.changeState(PlayerStateName.Idle);
+		
+		// Trigger screen shake on successful parry
+		if (window.gameState && window.gameState.cameraService) {
+			window.gameState.cameraService.shake(10, 0.3);
+		}
+		
 		return true;
 	}
 

@@ -9,17 +9,25 @@ export default class KnightHurtState extends KnightState {
 	}
 
 	enter() {
-		this.knight.currentAnimation = 'hurt';
+		this.knight.isTakingDamage = true;
+		this.knight.currentAnimation = 'defend'; // Use defend animation instead of broken hurt sprite
 		this.knight.currentFrame = 0;
 		this.timer = 0;
+
+		// Force correct dimensions for hurt animation (same as movement/attack)
+		this.knight.frameWidth = 72;
+		this.knight.frameHeight = 72;
 		
 		// If stunned, use stun duration
 		if (this.knight.isStunned) {
 			this.duration = this.knight.stunDuration;
-			this.knight.currentAnimation = 'defend'; // Show defend animation when stunned (as per original code)
 		} else {
 			this.duration = 0.5;
 		}
+	}
+
+	exit() {
+		this.knight.isTakingDamage = false;
 	}
 
 	update(dt, player) {

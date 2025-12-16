@@ -14,6 +14,7 @@ export default class KnightAttackState extends KnightState {
 		this.knight.attackTimer = 0;
 		this.knight.lastAttackTime = 0;
 		this.hasDealtDamage = false;
+		this.hasDodged = false;
 		
 		// Play attack sound
 		if (window.gameState && window.gameState.playSFX) {
@@ -33,6 +34,19 @@ export default class KnightAttackState extends KnightState {
 			);
 		}
 
+		// Generous dodge detection (wider window and radius)
+		// Allow dodge detection from start of attack until near end
+		if (this.knight.attackTimer > 0.1 && this.knight.attackTimer < 0.8 && !this.hasDodged && !this.hasDealtDamage && player) {
+			// Check if player is dashing within a reasonable range (1.5x attack range)
+			// This rewards dodging "near" the enemy even if not perfectly in the damage zone
+			if (distanceToPlayer <= this.knight.attackRange * 1.5 && player.isDashing) {
+				this.hasDodged = true;
+				this.hasDealtDamage = true; // Prevent damage if we've registered a dodge
+				player.showDodgeText();
+				//console.log('🏃 Player dodged knight attack (generous check)!');
+			}
+		}
+
 		// Deal damage to player at middle of attack animation
 		if (this.knight.attackTimer > 0.3 && this.knight.attackTimer < 0.5 && player && distanceToPlayer <= this.knight.attackRange) {
 			if (!this.hasDealtDamage) {
@@ -46,7 +60,10 @@ export default class KnightAttackState extends KnightState {
 					return;
 				} else if (player.isDashing) {
 					// Player dodged the attack!
-					player.showDodgeText();
+					if (!this.hasDodged) {
+						this.hasDodged = true;
+						player.showDodgeText();
+					}
 					//console.log('🏃 Player dodged knight attack!');
 				} else if (player.takeDamage) {
 					// Normal damage

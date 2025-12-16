@@ -8,6 +8,7 @@ export default class EnemyAttackState extends EnemyState {
 
 	enter() {
 		this.hasDealtDamage = false;
+		this.hasDodged = false;
 		this.enemy.currentAnimation = 'attack';
 		this.enemy.currentFrame = 0;
 		this.enemy.attackTimer = 0;
@@ -33,6 +34,15 @@ export default class EnemyAttackState extends EnemyState {
 			return;
 		}
 
+		// Generous dodge detection (wider window and radius)
+		if (this.enemy.attackTimer > 0.1 && this.enemy.attackTimer < 0.8 && !this.hasDodged && !this.hasDealtDamage && player) {
+			if (distanceToPlayer <= this.enemy.attackRange * 1.5 && player.isDashing) {
+				this.hasDodged = true;
+				this.hasDealtDamage = true; // Prevent damage if we've registered a dodge
+				player.showDodgeText();
+			}
+		}
+
 		// Deal damage to player at middle of attack animation
 		// We use a flag to ensure damage is dealt only once per attack
 		if (this.enemy.attackTimer > 0.3 && this.enemy.attackTimer < 0.4 && player && distanceToPlayer <= this.enemy.attackRange) {
@@ -46,7 +56,10 @@ export default class EnemyAttackState extends EnemyState {
 					return; // State change happens in getStunned
 				} else if (player.isDashing) {
 					// Player dodged the attack!
-					player.showDodgeText();
+					if (!this.hasDodged) {
+						this.hasDodged = true;
+						player.showDodgeText();
+					}
 					//console.log('🏃 Player dodged enemy attack!');
 					this.hasDealtDamage = true;
 				} else if (player.takeDamage) {
